@@ -7,6 +7,7 @@ sudo yum install nfs-utils -y
 sudo yum update -y
 sudo yum install docker -y
 sudo usermod -aG docker $USER
+sudo chmod 666 /var/run/docker.sock
 
 
 # Instalando docker-compose
