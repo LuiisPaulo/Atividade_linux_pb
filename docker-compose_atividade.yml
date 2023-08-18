@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  wordpress:
+    image: wordpress
+    volume:
+      - /efs/website:/var/www/html
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST:
+      WORDPRESS_DB_USER:
+      WORDPRESS_DB_PASSWORD:
+      WORDPRESS_DB_NAME:
+      WORDPRESS_TABLE_CONFIG:
