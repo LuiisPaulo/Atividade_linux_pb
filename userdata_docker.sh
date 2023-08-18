@@ -1,14 +1,15 @@
 #!/bin/bash
 sudo yum update -y
+sudo yum install git -y
 sudo yum install yum-utils -y
 sudo yum install nfs-utils -y
 
 # Instalando docker
 sudo yum update -y
 sudo yum install docker -y
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ec2-user
 sudo chmod 666 /var/run/docker.sock
-
+sudo newgrp docker
 
 # Instalando docker-compose
 curl -L https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
