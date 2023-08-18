@@ -1,6 +1,5 @@
 #!/bin/bash
 sudo yum update -y
-sudo yum install git -y
 sudo yum install yum-utils -y
 sudo yum install nfs-utils -y
 
