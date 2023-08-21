@@ -14,7 +14,7 @@ sudo mkdir /efs
 sudo yum update -y
 sudo yum install docker -y
 sudo yum update -y
-sudo chmod 666 /var/run/docker.sock
+sudo usermod -a -G docker ec2-user
 
 
 # Instalando docker-compose
