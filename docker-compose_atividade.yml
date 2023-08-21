@@ -3,13 +3,13 @@ services:
   wordpress:
     image: wordpress
     restart: always
-    volume:
+    volumes:
       - /efs/website:/var/www/html
     ports:
       - "80:80"
     environment:
-      WORDPRESS_DB_HOST: ""
-      WORDPRESS_DB_USER: ""
-      WORDPRESS_DB_PASSWORD: ""
-      WORDPRESS_DB_NAME: ""
-      WORDPRESS_TABLE_CONFIG: ""
+      WORDPRESS_DB_HOST: AWS RDS Endpoint
+      WORDPRESS_DB_USER: user BD RDS
+      WORDPRESS_DB_PASSWORD: password BD RDS
+      WORDPRESS_DB_NAME: name BD RDS
+      WORDPRESS_TABLE_CONFIG: wp_
