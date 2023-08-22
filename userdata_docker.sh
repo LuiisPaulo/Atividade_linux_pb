@@ -3,12 +3,7 @@ sudo yum update -y
 sudo yum install git -y
 sudo yum install yum-utils -y
 sudo yum install nfs-utils -y
-
-# Configurando o EFS
-sudo yum update -y
 sudo yum install -y amazon-efs-utils
-sudo mkdir /efs
-#colar o ponto de montagem que o serviço de EFS fornece
 
 # Instalando docker
 sudo yum update -y
