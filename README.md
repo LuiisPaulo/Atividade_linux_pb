@@ -55,12 +55,91 @@ Autor: Luis Paulo Lopes Gonçalves
         - Saída do comando: 
 * Passo  - Instalando o Docker Compose na instância EC2 (Amazon Elastic Compute Cloud):
     - 
-      - Após fazer a instalação do Docker 
+  - Após fazer a instalação do Docker na sua instância EC2, vamos instalar o nosso Docker Compose para criarmos nosso .yml (.yaml) que conterá nossa imagem personalizada do Wordpress:
+      
+      1. Instalando o Docker Compose?
+
+              sudo yum update -y
+              sudo curl -L https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+
+      2. Dando permissões pro Docker Compose:
+
+              sudo chmod +x /usr/local/bin/docker-compose
+
 * Passo  - Criar um Docker Compose:
     -
+    - Para criarmos o nosso Docker Compose, iremos utilizar um editor de texto no terminal do Linux, no exemplo do Docker Compose, foi utilizado o nano.
+    - O arquivo deve terminar com .yml ou .yaml.
+
+      1. Criando um diretório novo para armazenarmos o nosso Docker Compose:
+
+             sudo mkdir /nome/do/diretório
+             cd /nome/do/diretório
+
+      3. Criando o arquivo do Docker Compose:
+
+             nano docker-compose.yml
+
+      4. Criando o Docker Compose:
+
+             version: '3.7'
+             services:
+               wordpress:
+                 image: wordpress
+                 restart: always
+                 volumes:
+                   - /efs/website:/var/www/html
+                 ports:
+                   - "80:80"
+                 environment:
+                   WORDPRESS_DB_HOST: AWS RDS Endpoint
+                   WORDPRESS_DB_USER: user BD RDS
+                   WORDPRESS_DB_PASSWORD: password BD RDS
+                   WORDPRESS_DB_NAME: name DB RDS
+                   WORDPRESS_TABLE_CONFIG: wp_
+
+         5. Após salvar o Docker Compose criado, vamos executar nosso arquivo .yml/.yaml, dentro do próprio diretório do Docker Compose execute o comando:
+
+                docker-compose up -d
+
+          6. 
 
 * Passo  - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
     - 
+    - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2, além de conseguirmos configurar e fazer a montagem do EFS (Amazon Elastic File System) através do script.
+    - Para adicionarmos o script há instância, vá em detalhes avançados da instância e vá no tópico de user data, e vamos importar o script ou colar-ló.
+ 
+          #!/bin/bash
+          sudo yum update -y
+          sudo yum install git -y
+          sudo yum install yum-utils -y
+          sudo yum install nfs-utils -y
+
+          # Configurando o EFS (Amazon Elastic File System)
+          sudo yum update -y
+          sudo yum install amazon-efs-utils -y
+          sudo mkdir /efs
+          # colar o ponto de montagem fornecido pelo serviço EFS
+
+          # Instalando e Configurando o docker
+          sudo yum update -y
+          sudo yum install docker -y
+          sudo usermod -a -G docker ec2-user
+
+          # Instalando e Configurando o docker compose
+          sudo yum update -y
+          sudo curl -L https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+          # Ativando o serviço docker
+          sudo systemctl enable docker.sevice
+          sudo systemctl start docker.service
+
+    - (Observação) Caso a permissão do docker não funcione, execute o seguinte comando abaixo, com a instância já rodando e você estando conectada a ela:
+
+          sudo chmod 666 /var/run/docker.sock
+
+    - Após colar o script no user data, basta iniciar a instância.
 
 * Passo  - Criar um EFS (Amazon Elastic File System):
     - 
