@@ -82,16 +82,17 @@ Autor: Luis Paulo Lopes Gonçalves
 
       4. Criando o Docker Compose:
 
-             version: '3.7'
+             version: '3.8'
              services:
                wordpress:
                  image: wordpress
                  restart: always
                  volumes:
-                   - /efs/website:/var/www/html
+                   - /efs/siteweb:/var/www/html
                  ports:
                    - "80:80"
                  environment:
+                   TZ: America/Sao_Paulo
                    WORDPRESS_DB_HOST: AWS RDS Endpoint
                    WORDPRESS_DB_USER: user BD RDS
                    WORDPRESS_DB_PASSWORD: password BD RDS
@@ -102,10 +103,17 @@ Autor: Luis Paulo Lopes Gonçalves
 
                 docker-compose up -d
 
-          6. 
+          6. Depois de executar o comando, irá baixar a imagem e subir o serviço que configuramos no nosso Docker Compose.
+          7. Verifique se o serviço está no ar pesquisando o ip da sua instância com :80 no final do endereço ip.
+          8. Para visualizar o volume criado, execute os comandos abaixos:
+
+                  cd /efs && ls /efs
+          9. Entre no diretório que foi criado, como no docker compose o diretório que foi criado para armazena os volumes foi siteweb, portando vamos utilizar os comandos para entrar no diretório e visualizar seus arquivos:
+        
+                  cd siteweb/
+                  ls 
 
 * Passo  - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
-    - 
     - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2.
     - Para adicionarmos o script há instância, vá em detalhes avançados da instância e vá no tópico de user data, e vamos importar o script ou colar-ló.
  
