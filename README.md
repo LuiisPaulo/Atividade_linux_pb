@@ -106,7 +106,7 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo  - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
     - 
-    - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2, além de conseguirmos configurar e fazer a montagem do EFS (Amazon Elastic File System) através do script.
+    - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2.
     - Para adicionarmos o script há instância, vá em detalhes avançados da instância e vá no tópico de user data, e vamos importar o script ou colar-ló.
  
           #!/bin/bash
@@ -114,12 +114,7 @@ Autor: Luis Paulo Lopes Gonçalves
           sudo yum install git -y
           sudo yum install yum-utils -y
           sudo yum install nfs-utils -y
-
-          # Configurando o EFS (Amazon Elastic File System)
-          sudo yum update -y
           sudo yum install amazon-efs-utils -y
-          sudo mkdir /efs
-          # colar o ponto de montagem fornecido pelo serviço EFS
 
           # Instalando e Configurando o docker
           sudo yum update -y
