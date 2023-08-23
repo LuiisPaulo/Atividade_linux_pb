@@ -92,6 +92,12 @@ Autor: Luis Paulo Lopes Gonçalves
 
               sudo chmod +x /usr/local/bin/docker-compose
 
+* Passo  - Criar um EFS (Amazon Elastic File System):
+    - 
+
+* Passo  - Criar um RDS (Amazon Relational Database Service):
+    -
+  
 * Passo  - Criar um Docker Compose:
     -
     - Para criarmos o nosso Docker Compose, iremos utilizar um editor de texto no terminal do Linux, no exemplo do Docker Compose, foi utilizado o nano.
@@ -169,12 +175,6 @@ Autor: Luis Paulo Lopes Gonçalves
           sudo chmod 666 /var/run/docker.sock
 
     - Após colar o script no user data, basta iniciar a instância.
-
-* Passo  - Criar um EFS (Amazon Elastic File System):
-    - 
-
-* Passo  - Criar um RDS (Amazon Relational Database Service):
-    - 
 
 * Passo  - Criando um Grupo de Destino:
     -
