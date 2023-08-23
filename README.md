@@ -115,7 +115,46 @@ Autor: Luis Paulo Lopes Gonçalves
 * Passo  - Criar um EFS (Amazon Elastic File System):
     - 
 
-    -
+    - Criando um EFS (Amazon Elastic File System), para utilizar como NFS do projeto:
+
+      1. Abra o console da AWS, e pesquise o serviço EFS.
+      2. Selecione a opção de Criar um sistema de arquivos.
+      3. Defina um nome.
+      4. Escolha a VPC que será utilizada.
+      5. (Opcional) Antes de criar o EFS, pode clicar no botão customizar para alterar as própriedades padrões que a AWS fornece.
+      6. Clique em Criar.
+
+    - Após a criação do EFS, vamos configura-lô:
+
+      1. No paínel principal do serviço de EFS, selecione o EFS criado.
+      2. Selecione a sessão de rede.
+      3. Clique em Editar.
+      4. Altera o grupo de segurança padrão, para o grupo de segurança que foi criado.
+      5. Clique em salvar.
+
+    - Depois de criar e configurar o EFS (Amazon Elastic File System), iremos anexar ele na(s) instância(s) EC2 criadas.
+    - Para prosseguirmos com a configuração, será necessário se conectar a instância via console AWS, chave SSH, ou por meio do Putty.
+    - Após conectar a instância(s) EC2, realize as seguintes etapas:
+
+      1. Crie um diretório.
+
+              sudo yum update -y
+              mkdir efs
+
+      2. No painel do serviço EFS (Amazon Elastic File System) dentro da console da AWS, acesse o EFS criado e clique em Anexar.
+      3. Após clicar em Anexar, abrirá uma janela pop-up com os comandos que devem ser utilizado para criamos o ponto de montagem do nosso EFS.
+      4. Marque a opção de Montar via DNS, e siga as instruções.
+      5. Exemplo:
+
+   ![Screenshot 2023-08-22 175517](https://github.com/LuiisPaulo/Atividade_linux_pb/assets/138496370/e2eac060-e435-4a38-b71b-f860b8ea1dff)
+
+    - Podemos conferir se o ponto de montagem deve sucesso por meio do comando:
+ 
+          df -h
+
+    - Saída esperada:
+     
+
 * Passo  - Criar um RDS (Amazon Relational Database Service):
     -
 
