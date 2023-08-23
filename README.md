@@ -12,11 +12,26 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo 1 - Criar um VPC (Virtual Private Cloud):
   -
+    - Criando uma VPC, sub-redes e outros recusos de VPC, via console da AWS:
+    - (Observação) A seguir segue o passo a passo para criamos uma VPC que iremos utilizar para o projeto, algumas configurações adicionais não serão necessárias para o mesmo, portanto deixe tais configurações no formato padrão.
+        1. Abra o console da AWS e pesquise pelo serviço de Amazon VPC.
+        2. No painel de VPC, selecione a opção Criar VPC (Create VPC).
+        3. Em recursos a serem criados (Resources to create), selecione a opção de VPC e mais (VPC and more).
+        4. Pode manter selecionada a opção de gerar tags de nome de forma automática para os recursos da VPC, ou pode desmarca a opção para definir as tags de nome que deseja para seus recursos da VPC.
+        5. No Bloco de CIDR IPv4, defina uma faixa de endereço IPv4 para VPC.
+        6. (Opcional) Também pode definir um Bloco CIDR IPv6, que é oferecido pela Amazon.
+        7. Em opções de Locação, selecione a opção Default.
+        8. Na sessão de Número de zonas de disponibilidade (AZs) deixe a criação automática que a própria AWS fornece, caso contrário você pode criar as suas sub-redes expandindo em personalizar AZs.
+        9. Na configuração das sub-redes, deixe de forma automática, onde a própria AWS escolhe. Caso contrário pode configurar os valores para números de sub-redes pública e privadas, também pode selecionar os intervalos de endereços IP para as sub-redes, expandindo na sessão personalizar blocos CIDR de sub-redes.
+        11. Na sessão de visualização, consegue-se visualizar as relação entre o serviço de VPC e seus recursos.
+        12. Após concluir a configuração, basta selecionar Criar VPC.
+        
 * Passo 2 - Criar uma instância EC2 (Amazon Elastic Compute Cloud):
   -
   
 * Passo  - Configuração do Grupo de Segurança (Security Group):
-  -
+    -
+  - Para configurarmos o Security Group que iremos utilizar 
 
 * Passo  - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
   - 
@@ -149,6 +164,9 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo  - Criar um RDS (Amazon Relational Database Service):
     - 
+
+* Passo  - Criando um Grupo de Destino:
+    -
 
 * Passo  - Criando e Configurando um ELB (Elastic Load Balance):
     -
