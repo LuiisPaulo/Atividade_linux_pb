@@ -28,7 +28,8 @@ Autor: Luis Paulo Lopes Gonçalves
         
 * Passo 2 - Criar uma instância EC2 (Amazon Elastic Compute Cloud):
   -
-  
+
+  (Observação) Para realização da instalação e configuração do Docker e do Docker-Compose via script, vá para o passo e depois volte para prosseguir com os próximos passos.
 * Passo  - Configuração do Grupo de Segurança (Security Group):
     -
   - No passo anterior, criamos juntamente com a instância um grupo de segurança, entretando precisamos configura-lô para que possamos utilizarmos em nossa arquitetura.
@@ -45,11 +46,29 @@ Autor: Luis Paulo Lopes Gonçalves
   
 
 * Passo  - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
-  - 
+    - 
+      - Crie um Elastic IP, para conseguir acessar a instância.
 
+        1. Vá no painel de serviço EC2.
+        2. Vá na sessão de IPs Elásticos (Elastic IP).
+        3. Clique no botão Alocar endereço de IP elástico.
+        4. Deixe as opções já selecionadas pela AWS.
+        5. (Opcional) Adicone as tags para o serviço.
+        6. Clique em alocar.
+
+      - Anexando o IP elástico na instância EC2.
+
+        1. Selecione o endereço de IP que foi criado.
+        2. Clique em ações (action).
+        3. Clique em Associar endereço de IP elástico.
+        4. Deixe as configurações padrões fornecida pela a AWS, alterando somente a sessão de instância.
+        5. Na sessão de instância, selecione a instância desejada.
+        6. Clique em associar.
+        7. Confira se o endereço de IP elástico foi associado corretamente na instância selecionada.
+     
 * Passo  - Instalando o Docker na instância EC2 (Amazon Elastic Compute Cloud):
   -
-    - Para a realização do Docker, você precisa concetar-se a instância EC2, você pode realizar esse acesso via console da AWS, ou por meio da chave de SSH, também pode acessar a instância via .ppk pelo Putty.
+    - Para a realização da instalação do Docker, você precisa concetar-se a instância EC2, você pode realizar esse acesso via console da AWS, ou por meio da chave SSH, também pode acessar a instância via .ppk pelo Putty.
         - Após se conectar com a instância, realize a seguinte sequências de comandos para instalar e configurar o Docker em sua instância EC2.
      
       1. Instalando o Docker:
@@ -83,7 +102,7 @@ Autor: Luis Paulo Lopes Gonçalves
     - 
   - Após fazer a instalação do Docker na sua instância EC2, vamos instalar o nosso Docker Compose para criarmos nosso .yml (.yaml) que conterá nossa imagem personalizada do Wordpress:
       
-      1. Instalando o Docker Compose?
+      1. Instalando o Docker Compose:
 
               sudo yum update -y
               sudo curl -L https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
