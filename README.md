@@ -47,7 +47,8 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo  - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
     - 
-      - Crie um Elastic IP, para conseguir acessar a instância.
+
+    - Crie um Elastic IP, para conseguir acessar a instância.
 
         1. Vá no painel de serviço EC2.
         2. Vá na sessão de IPs Elásticos (Elastic IP).
@@ -113,10 +114,12 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo  - Criar um EFS (Amazon Elastic File System):
     - 
-      -
+
+    -
 * Passo  - Criar um RDS (Amazon Relational Database Service):
     -
-      -
+
+    -
 * Passo  - Criar um Docker Compose:
     -
     - Para criarmos o nosso Docker Compose, iremos utilizar um editor de texto no terminal do Linux, no exemplo do Docker Compose, foi utilizado o nano.
