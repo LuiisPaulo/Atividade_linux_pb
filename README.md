@@ -57,7 +57,7 @@ Autor: Luis Paulo Lopes Gonçalves
         5. (Opcional) Adicone as tags para o serviço.
         6. Clique em alocar.
 
-      - Anexando o IP elástico na instância EC2.
+    - Anexando o IP elástico na instância EC2.
 
         1. Selecione o endereço de IP que foi criado.
         2. Clique em ações (action).
