@@ -31,7 +31,18 @@ Autor: Luis Paulo Lopes Gonçalves
   
 * Passo  - Configuração do Grupo de Segurança (Security Group):
     -
-  - Para configurarmos o Security Group que iremos utilizar 
+  - No passo anterior, criamos juntamente com a instância um grupo de segurança, entretando precisamos configura-lô para que possamos utilizarmos em nossa arquitetura.
+      1. Vá no painel do serviço de EC2.
+      2. Após abrir o painel de serviços de EC2, selecione a sessão de Grupo de Segurança (Security Group).
+      3. Após abrir a sessão, selecione o grupo de segurança que será utilizado.
+      4. Clique em Ações (Action).
+      5. Em ações, clique em Editar regras de entrada.
+      6. E adicione as seguintes regras:
+   
+      ![Screenshot 2023-08-23 130058](https://github.com/LuiisPaulo/Atividade_linux_pb/assets/138496370/eb01b86a-04e7-4dd1-9d81-07c2ac8f12ab)
+
+      7. Após adicionar as novas regras, clique em salvar.
+  
 
 * Passo  - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
   - 
