@@ -38,7 +38,7 @@ Autores: Luis Paulo Lopes Gonçalves e Wesley Sergio do Carmo Soares.
       7.  Na sessão de configurações de rede, crie um novo grupo de segurança.
       8.  Mantenha a seleção padrão para outras configurações da instância.
       9.  (Opcional) Em configurações avançadas, vá em user data:
-      - (Observação) Para realização da instalação e configuração do Docker e do Docker-Compose via script, vá para o passo e depois volte para prosseguir com os próximos passos.
+      - (Observação) Para realização da instalação e configuração do Docker e do Docker-Compose via script, vá para o passo 10 e depois volte para prosseguir com os próximos passos.
       10. Clique em criar instância.  
         
 * Passo 3 - Configuração do Grupo de Segurança (Security Group):
