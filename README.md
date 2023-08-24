@@ -241,6 +241,7 @@ Autores: Luis Paulo Lopes Gonçalves e Wesley Sergio do Carmo Soares.
                   ls 
 
 * Passo 10 - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
+    -
     - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2.
     - Para adicionarmos o script há instância, vá em detalhes avançados da instância e vá no tópico de user data, e vamos importar o script ou colar-ló.
  
