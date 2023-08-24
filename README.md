@@ -1,4 +1,4 @@
-Autor: Luis Paulo Lopes Gonçalves
+Autores: Luis Paulo Lopes Gonçalves e Wesley Sergio do Carmo Soares.
 
 * Requisitos:
   - Conhecimento básico em AWS.
