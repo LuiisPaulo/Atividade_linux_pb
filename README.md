@@ -208,10 +208,10 @@ Autor: Luis Paulo Lopes Gonçalves
                    - "80:80"
                  environment:
                    TZ: America/Sao_Paulo
-                   WORDPRESS_DB_HOST: AWS RDS Endpoint
-                   WORDPRESS_DB_USER: user BD RDS
-                   WORDPRESS_DB_PASSWORD: password BD RDS
-                   WORDPRESS_DB_NAME: name DB RDS
+                   WORDPRESS_DB_HOST: #AWS RDS Endpoint
+                   WORDPRESS_DB_USER: #user BD RDS
+                   WORDPRESS_DB_PASSWORD: #password BD RDS
+                   WORDPRESS_DB_NAME: #name DB RDS
                    WORDPRESS_TABLE_CONFIG: wp_
 
          5. Após salvar o Docker Compose criado, vamos executar nosso arquivo .yml/.yaml, dentro do próprio diretório do Docker Compose execute o comando:
