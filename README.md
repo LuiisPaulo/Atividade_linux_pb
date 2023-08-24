@@ -258,6 +258,7 @@ Autor: Luis Paulo Lopes Gonçalves
           sudo chmod 666 /var/run/docker.sock
 
     - Após colar o script no user data, basta iniciar a instância.
+ 
 
 * Passo  - Criando um Grupo de Destino:
     -
@@ -265,5 +266,10 @@ Autor: Luis Paulo Lopes Gonçalves
 * Passo  - Criando e Configurando um ELB (Elastic Load Balance):
     -
 
+* Passo  - Criando uma AMI da instância:
+    -
+
+* Passo  - Criando um Modelo de Execução:
+    -
 * Passo  - Criando e Configurando um Auto Scalling Group:
     - 
