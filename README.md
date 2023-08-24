@@ -28,9 +28,20 @@ Autor: Luis Paulo Lopes Gonçalves
         
 * Passo 2 - Criar uma instância EC2 (Amazon Elastic Compute Cloud):
   -
-
-  (Observação) Para realização da instalação e configuração do Docker e do Docker-Compose via script, vá para o passo e depois volte para prosseguir com os próximos passos.
-* Passo  - Configuração do Grupo de Segurança (Security Group):
+  - Criado uma instância EC2 (Amazon Elastic Compute Cloud).
+      1.  Abra o console da AWS, e pesquise pelo serviço Amazon EC2.
+      2.  No painel de EC2, clique em iniciar instância,
+      3.  Defina o nome e as tags para instância.
+      4.  Em Imagens e Aplicações, selecione o sistema operacional Linux, e a AMI (Amazon Machine Images) selecione Amazon Linux 2023, ou Amazon Linux 2, ambas estão marcadas como free tier.
+      5.  Em tipo de instância, selecione o tipo t2.micro que está inclusa no plano free tier na AWS.
+      6.  Em par de chaves, crie o par de chaves, para conseguir realizar a conexão da instância via console, ssh ou Putty.
+      7.  Na sessão de configurações de rede, crie um novo grupo de segurança.
+      8.  Mantenha a seleção padrão para outras configurações da instância.
+      9.  (Opcional) Em configurações avançadas, vá em user data:
+      - (Observação) Para realização da instalação e configuração do Docker e do Docker-Compose via script, vá para o passo e depois volte para prosseguir com os próximos passos.
+      10. Clique em criar instância.  
+        
+* Passo 3 - Configuração do Grupo de Segurança (Security Group):
     -
   - No passo anterior, criamos juntamente com a instância um grupo de segurança, entretando precisamos configura-lô para que possamos utilizarmos em nossa arquitetura.
       1. Vá no painel do serviço de EC2.
@@ -45,7 +56,7 @@ Autor: Luis Paulo Lopes Gonçalves
       7. Após adicionar as novas regras, clique em salvar.
   
 
-* Passo  - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
+* Passo 4 - Criando um Elastic IP, para configuração da instância EC2 (Amazon Elastic Compute Cloud):
     - 
 
     - Crie um Elastic IP, para conseguir acessar a instância.
@@ -67,7 +78,7 @@ Autor: Luis Paulo Lopes Gonçalves
         6. Clique em associar.
         7. Confira se o endereço de IP elástico foi associado corretamente na instância selecionada.
      
-* Passo  - Instalando o Docker na instância EC2 (Amazon Elastic Compute Cloud):
+* Passo 5 - Instalando o Docker na instância EC2 (Amazon Elastic Compute Cloud):
   -
     - Para a realização da instalação do Docker, você precisa concetar-se a instância EC2, você pode realizar esse acesso via console da AWS, ou por meio da chave SSH, também pode acessar a instância via .ppk pelo Putty.
         - Após se conectar com a instância, realize a seguinte sequências de comandos para instalar e configurar o Docker em sua instância EC2.
@@ -99,7 +110,7 @@ Autor: Luis Paulo Lopes Gonçalves
               docker pull hello-world
 
         - Saída do comando: 
-* Passo  - Instalando o Docker Compose na instância EC2 (Amazon Elastic Compute Cloud):
+* Passo 6 - Instalando o Docker Compose na instância EC2 (Amazon Elastic Compute Cloud):
     - 
   - Após fazer a instalação do Docker na sua instância EC2, vamos instalar o nosso Docker Compose para criarmos nosso .yml (.yaml) que conterá nossa imagem personalizada do Wordpress:
       
@@ -112,7 +123,7 @@ Autor: Luis Paulo Lopes Gonçalves
 
               sudo chmod +x /usr/local/bin/docker-compose
 
-* Passo  - Criar um EFS (Amazon Elastic File System):
+* Passo 7 - Criar um EFS (Amazon Elastic File System):
     - 
 
     - Criando um EFS (Amazon Elastic File System), para utilizar como NFS do projeto:
@@ -155,7 +166,7 @@ Autor: Luis Paulo Lopes Gonçalves
     - Saída esperada:
      
 
-* Passo  - Criar um RDS (Amazon Relational Database Service):
+* Passo 8 - Criar um RDS (Amazon Relational Database Service):
     -
    - Criando um Amazon RDS (Amazon Relational Database Service) para utilizarmos com a aplicação do wordpress.
         
@@ -183,7 +194,7 @@ Autor: Luis Paulo Lopes Gonçalves
       21. Clique em Criar Banco de Dados.
  
 
-* Passo  - Criar um Docker Compose:
+* Passo 9 - Criar um Docker Compose:
     -
     - Para criarmos o nosso Docker Compose, iremos utilizar um editor de texto no terminal do Linux, no exemplo do Docker Compose, foi utilizado o nano.
     - O arquivo deve terminar com .yml ou .yaml.
@@ -230,7 +241,7 @@ Autor: Luis Paulo Lopes Gonçalves
                   cd siteweb/
                   ls 
 
-* Passo  - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
+* Passo 10 - (Opcional) Instalação do Docker, Docker Compose e suas respectivas configurações via script no user_data (dados do usuário):
     - Podemos automotizar o processo de instalação e configuração do Docker e do Docker Compose quando formos subir nossa instância EC2.
     - Para adicionarmos o script há instância, vá em detalhes avançados da instância e vá no tópico de user data, e vamos importar o script ou colar-ló.
  
@@ -262,7 +273,7 @@ Autor: Luis Paulo Lopes Gonçalves
     - Após colar o script no user data, basta iniciar a instância.
  
 
-* Passo  - Criando um Grupo de Destino:
+* Passo 11 - Criando um Grupo de Destino:
     -
     - Criando um Grupo de Destino:
 
@@ -280,7 +291,7 @@ Autor: Luis Paulo Lopes Gonçalves
          8. Clique em criar grupo de destino.
       5. Após criar o grupo de destino, anexe a(s) instância(s) criadas.
     
-* Passo  - Criando e Configurando um ELB (Elastic Load Balance):
+* Passo 12 - Criando e Configurando um ELB (Elastic Load Balance):
     -
     - Criando um ELB (Elastic Load Balance), e alocando o grupo de destino ao mesmo.
       1. Abra a console da AWS, e pesquise pelo serviço de Amazon EC2.
@@ -304,10 +315,13 @@ Autor: Luis Paulo Lopes Gonçalves
       9. Clique em criar Load Balance.
 
           
-* Passo  - Criando uma AMI da instância:
+* Passo 13 - Criando uma AMI da instância:
+    - 
+    -  
+* Passo 14 - Criando um Modelo de Execução:
+    -
     - 
 
-* Passo  - Criando um Modelo de Execução:
-    -
-* Passo  - Criando e Configurando um Auto Scalling Group:
+* Passo 15 - Criando e Configurando um Auto Scalling Group:
     - 
+    -
