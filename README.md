@@ -317,11 +317,80 @@ Autor: Luis Paulo Lopes Gonçalves
           
 * Passo 13 - Criando uma AMI da instância:
     - 
-    -  
+    -  Criando uma imagem da nossa instância.
+    -   
+        1. Abra o console da AWS.
+        2. Pesquise o serviço de Amazon EC2.
+        3. Dentro do painel do serviço, entre na sessão de instância.
+        4. Dentro da sessão de instância, selecione a instância criada para o ambiente.
+        5. Clique em ações.
+        6. Vá até a sessão de imagens e modelos.
+        7. Selecione a opção de criar imagem.
+        8. Você será redirecionado para o painel de criação de uma imagem (AMI).
+        9. Ensira um nome para imagem.
+        10. (Opcional) Defina uma descrição para imagem.
+        11. Na sessão de Não reinicializar, deixe a opção desmarcada.
+        12. Em volumes de instância, deixe padrão. Caso contrário, pode configurar de maneira manual.
+        13. (Opcional) Adicione tags a sua imagem (AMI).
+        14. Clique em Criar imagem.  
+        
 * Passo 14 - Criando um Modelo de Execução:
     -
+    - Criando um modelo de execução.
     - 
+        1. Abra o console da Amazon AWS.
+        2. Pesquise o serviço de Amazon EC2.
+        3. Defina um nome para o modelo de execução.
+        4. Defina uma descrição para versão do modelo de execução.
+        5. Na sessão de Orientação sobre Auto Scaling, habilite a opção.
+        6. Na sessão de tags do modelo, adicione tags para seu serviço.
+        7. Na sessão de Conteúdo do modelo de execução, selecione a opção Minhas AMIs.
+        8. Marque a opção de minha propriedade.
+        9. Após selecionar a opção de Minhas AMIs, selecione a AMI que foi criada anteriormente.
+        10. Em Tipos de instância, escolha t2.micro, que faz parte do plano free tier da Amazon AWS.
+        11. Em Par de chaves, selecione o par de chaves criado quando configuramos a instância.
+        12. Em configuração de rede:
+        13. Em sub-rede selecione as sub-redes relacionadas com a VPC do ambiente.
+        14. Em grupos de segurança, selecione a opção selecionar grupo de segurança existente.
+        15. Após marca essa opção, escolha o grupo de segurança criado e configurado anteriormente.
+        16. Na sessão de armazenamento, deixe o padrão fornecido pela AWS. Caso contrário, pode configurar de maneira manual.
+        17. Em tags de recurso, defina tags para seu serviço.
+        18. Em Detalhes avançados, altere os dados do usuário, colando o user_data do passo 10, as demais configurações deixe as configurações padrões.
+        19. Em resumo, visualize se as configurações estão corretas.
+        20. Clique em criar modelo de execução.
 
-* Passo 15 - Criando e Configurando um Auto Scalling Group:
+* Passo 15 - Criando e Configurando um Auto Scaling Group:
     - 
     -
+        1. Abra o console da Amazon AWS.
+        2. Abra o painel de serviço de Amazon EC2.
+        3. No painel de serviço do Amazon EC2, vá até a sessão de Grupos de Auto Scalling.
+        4. Clique em Criar grupo de Auto Scaling.
+        5. Defina um nome do grupo de Auto Scaling.
+        6. Na sessão de Modelo de execução, selecione o modelo de execução criado anteriormente.
+        7. Clique em próximo.
+        8. Em Rede:
+           1. Selecione a VPC que está sendo utilizada no ambiente.
+           2. Na sessão de Zonas de disponibilidade e sub-rede, selecione as sub-redes criadas e configuradas junto da VPC que será utilizada.
+        9. Em Requisitos de tipo de tipo de instância, verifique se as configurações estão corretas. Como: o modelo de execução, versão, descrição e qual será o tipo de instância (no caso t2.micro).
+        10. Clique em próximo.
+        11. Em Balanceamento de carga, selecione a opção de Anexar a um balanceador de carga existente.
+        12. Após marca a opção, selecione Escolha entre seus grupos de destino de balanceador de carga.
+        13. Na sessão de Grupos de destino de balanceador de carga existente, selecione o Load Balancer criado anteriormente.
+        14. Em Opção de integração do VPC Lattice, selecione a opção Serviço VPC Lattice não disponível.
+        15. Na sessão de verificação de integridade, altere a sessão de Período de tolerância da verificação de integridade, informando a quantidade de tempo desejada.
+        16. Em configurações adicionais, deixe as opções desmarcadas.
+        17. Clique em próximo.
+        18. Na sessão de tamanho do grupo, defina as capacidades:
+            1. Defina a capacidade desejada (como: 1 ou mais).
+            2. Defina a capacidade mínima (como: 1 ou mais).
+            3. Defina a capacidade máxima.
+        19. Em Políticas de escalabilidade, selecione a opção de Nenhum.
+        20. Na sessão de proteção contra redução de escala de instância na horizontal, deixe a opção desabilitada.
+        21. Clique em próximo.
+        22. (Opcional) Adicionar notificações do Auto Scaling.
+        23. Clique em próximo.
+        24. (Opcional) Na sessão de etiquetas, adicione etiquetas pro serviço de Auto Scaling.
+        25. Clique em próximo.
+        26. Na sessão de Análise, verifique as configurações do Auto Scaling.
+        27. Clique em Criar grupo de Auto Scaling.
