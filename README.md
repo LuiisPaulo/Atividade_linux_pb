@@ -158,7 +158,29 @@ Autor: Luis Paulo Lopes Gonçalves
 * Passo  - Criar um RDS (Amazon Relational Database Service):
     -
 
-    -
+    1. No console da AWS, pesquise o serviço Amazon RDS (Amazon Relational Database Service).
+    2. Selecione Criar Banco de Dados.
+    3. Em método de criação, selecione a opção padrão.
+    4. Em tipo de mecanismo, escolha o MySQL.
+    5. Em versão, deixe a padrão.
+    6. Na sessão de identificação do banco de dados, dê um nome para identificação do seu banco de dados.
+    7. Na sessão de configurações de credencias.
+    8. Dê o nome do usuário master do banco de dados.
+    9. Dê a senha de usuário master do banco de dados.
+    10. Confirme a senha do usuário master.
+    11. Na sessão de classe da instância DB, deixei a instância padrão, db.t3.micro. Caso contrário selecione a instância manualmente.
+    12. Na sessão de conxeão, selecione a VPC criada para o projeto.
+    13. Na sessão de grupos de sub-net, deixe a opção selecionada que vem por padrão. Caso contrário você pode configurar de forma manual.
+    14. Em Acesso Público, marque a opção de não.
+    15. Em Grupos de Securança (Security Group), selecione o grupo de segurança criado anteriormente.
+    16. Na sessão de Zonas de Disponíbilidade, deixe a opção selecionada por padrão.
+    17. Em porta do Banco de Dados, deixe a porta criada por padrão pela AWS.
+    18. Na sessão de autentificação do Banco de Dados, marque a opção de autentificação por senha.
+    19. Na sessão de configurações adicionais, altere o nome do banco de dados.
+    20. Nas outras opções da sessão deixe os parâmetros gerados de forma automática pela AWS.
+    21. Clique em Criar Banco de Dados.
+ 
+
 * Passo  - Criar um Docker Compose:
     -
     - Para criarmos o nosso Docker Compose, iremos utilizar um editor de texto no terminal do Linux, no exemplo do Docker Compose, foi utilizado o nano.
