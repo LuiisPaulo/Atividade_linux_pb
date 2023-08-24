@@ -163,7 +163,6 @@ Autores: Luis Paulo Lopes Gonçalves e Wesley Sergio do Carmo Soares.
  
           df -h
 
-    - Saída esperada:
      
 
 * Passo 8 - Criar um RDS (Amazon Relational Database Service):
