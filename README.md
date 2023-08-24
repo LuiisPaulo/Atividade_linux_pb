@@ -158,6 +158,8 @@ Autor: Luis Paulo Lopes Gonçalves
 * Passo  - Criar um RDS (Amazon Relational Database Service):
     -
    - Criando um Amazon RDS (Amazon Relational Database Service) para utilizarmos com a aplicação do wordpress.
+        
+        
         1. No console da AWS, pesquise o serviço Amazon RDS (Amazon Relational Database Service).
         2. Selecione Criar Banco de Dados.
         3. Em método de criação, selecione a opção padrão.
@@ -262,12 +264,48 @@ Autor: Luis Paulo Lopes Gonçalves
 
 * Passo  - Criando um Grupo de Destino:
     -
+    - Criando um Grupo de Destino:
 
+      1. Abra o console da AWS, e pesquise pelo serviço de Amazon EC2.
+      2. O painel de navegação, selecione a sessão de Grupos de Destino.
+      3. Clique em Criar grupo de destino.
+      4. Na sessão de configurações básicas:
+         1. Selecione a opção de instância.
+         2. Dê um nome para o grupo de destino.
+         3. Em protocolo, selecione o prótocolo HTTP, na porta 80.
+         4. Em VPC, selecione a VPC que será utilizada no ambiente.
+         5. Em versão do protocolo, selecione a opção HTTP1.
+         6. Na sessão de Health checks, mantenha a configuração padrão que é fornecido pela AWS.
+         7. (Opcional) Adicione tags ao seu serviço.
+         8. Clique em criar grupo de destino.
+      5. Após criar o grupo de destino, anexe a(s) instância(s) criadas.
+    
 * Passo  - Criando e Configurando um ELB (Elastic Load Balance):
     -
+    - Criando um ELB (Elastic Load Balance), e alocando o grupo de destino ao mesmo.
+      1. Abra a console da AWS, e pesquise pelo serviço de Amazon EC2.
+      2. No painel de navegação, selecione a sessão de Load Balance.
+      3. Clique em Criar Load Balance.
+      4. Em tipos de Load Balance, selecione o Application Load Balance.
+      5. Em configurações básicas:
+        1. Em nome do Load Balance, escreva um nome para o seu serviço.
+        2. Na sessão de Scheme, marque a opção de internet-facing.
+        3. Na sessão de tipos de IP, selecione a opção de IPv4.
+      6. Na sessão de rede:
+        1. Em VPC, selecione a VPC que será utilizada no ambiente.
+        2. Em mapeamento, selecione a(s) Zona(s) que deseja utilizar.
+        3. Em subnets, deixe o padrão fornecido pela AWS. Caso ao contrário pode alterar de forma manual.
+        4. Na sessão de Grupo de Segurança (Security Group), selecione o grupo de segurança (Security Group) que foi criado e configurado para o ambiente.
+      7. Na sessão de Listeners e Routing:
+        1. Em protocolo selecione HTTP.
+        2. Em portas selecione a 80.
+        3. Em ações, selecione o Grupo de Destino que foi criado anteriormente.
+      8. (Opcional) Adicione tags ao seu serviço.
+      9. Clique em criar Load Balance.
 
+          
 * Passo  - Criando uma AMI da instância:
-    -
+    - 
 
 * Passo  - Criando um Modelo de Execução:
     -
